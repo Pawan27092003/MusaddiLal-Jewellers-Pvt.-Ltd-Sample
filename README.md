@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Musaddilal Jewellers Pvt. Ltd. — Crafted Since 1952</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -221,6 +221,7 @@ section{padding:80px 0}
 .cart-cls{width:36px;height:36px;border-radius:8px;border:1px solid var(--border);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text3);transition:all .3s}
 .cart-cls:hover{border-color:var(--gold);color:var(--gold)}
 .cart-items{flex:1;overflow-y:auto;padding:18px 26px}
+/* FIX: cart-empty hidden by default */
 .cart-empty{text-align:center;padding:60px 0;color:var(--text3)}
 .cart-empty svg{opacity:.25;margin-bottom:12px}
 .cart-empty p{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;margin-bottom:6px}
@@ -240,6 +241,7 @@ section{padding:80px 0}
 .ct-val{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--gold);font-weight:600}
 .checkout-btn{width:100%;background:var(--gold);color:#1A1410;padding:14px;border-radius:9px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;border:none;cursor:pointer;transition:all .3s;margin-bottom:10px}
 .checkout-btn:hover{background:var(--gold2);transform:translateY(-1px);box-shadow:0 8px 22px rgba(201,168,76,.3)}
+/* FIX: inv-dl-btn now visible */
 .inv-dl-btn{width:100%;background:transparent;color:var(--gold);padding:11px;border-radius:9px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.15em;text-transform:uppercase;font-weight:500;border:1.5px solid var(--gold);cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:8px}
 .inv-dl-btn:hover{background:var(--gold-glow)}
 
@@ -253,7 +255,7 @@ section{padding:80px 0}
 .mod-x{width:34px;height:34px;border-radius:7px;border:1px solid var(--border);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text3);transition:all .3s}
 .mod-x:hover{border-color:var(--gold);color:var(--gold)}
 /* INVOICE */
-.inv-wrap{padding:28px 30px}
+.inv-wrap{padding:28px 30px;max-height:80vh;overflow-y:auto}
 .inv-logo{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:var(--gold);text-align:center;margin-bottom:3px}
 .inv-sublogo{font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--text3);text-align:center;margin-bottom:22px}
 .inv-row{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px}
@@ -269,7 +271,9 @@ section{padding:80px 0}
 .inv-grand-lbl{font-size:13px;text-transform:uppercase;font-weight:500;color:var(--text)}
 .inv-grand-val{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold);font-weight:600}
 .inv-note{font-size:11.5px;color:var(--text3);text-align:center;margin-top:14px;line-height:1.7;padding-top:14px;border-top:1px solid var(--border)}
-.dl-inv-btn{display:none}
+/* FIX: dl-inv-btn visible inside modal */
+.dl-inv-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:16px;background:var(--gold);color:#1A1410;padding:13px;border-radius:9px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;border:none;cursor:pointer;transition:all .3s}
+.dl-inv-btn:hover{background:var(--gold2)}
 /* SUCCESS */
 .suc-wrap{padding:48px 38px;text-align:center}
 .suc-ico{width:64px;height:64px;border-radius:50%;background:var(--gold-glow);border:1.5px solid rgba(201,168,76,.3);display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
@@ -354,26 +358,26 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 0 2
     </a>
     <div class="nav-right">
       <a href="#" class="icon-btn" onclick="openCart(event)" title="Cart">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" /><line x1="3" y1="6" x2="21" y2="6" /><path d="M16 10a4 4 0 01-8 0" /></svg>
         <span class="cart-badge" id="cartCount">0</span>
       </a>
       <a href="#" class="icon-btn" onclick="openInvoice(event)" title="Download Invoice">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="12" y1="18" x2="12" y2="12" /><polyline points="9 15 12 18 15 15" /></svg>
       </a>
       <div class="dot-wrap">
         <button class="dot-btn" id="dotBtn" onclick="toggleDot()">
           <span></span><span></span><span></span>
         </button>
         <div class="dot-dd" id="dotDd">
-          <a class="dd-item" href="#home"><div class="dd-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>Home</a>
-          <a class="dd-item" href="#recommended"><div class="dd-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>Recommended</a>
-          <a class="dd-item" href="#collections"><div class="dd-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>Collections</a>
-          <a class="dd-item" href="#custom-page"><div class="dd-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14"/><path d="M4.93 4.93a10 10 0 000 14.14"/></svg></div>Custom Jewellery</a>
-          <a class="dd-item" onclick="openCart(event);toggleDot()"><div class="dd-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/></svg></div>My Cart</a>
-          <a class="dd-item" onclick="openInvoice(event);toggleDot()"><div class="dd-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/></svg></div>Download Invoice</a>
+          <a class="dd-item" href="#home"><div class="dd-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" /></svg></div>Home</a>
+          <a class="dd-item" href="#recommended"><div class="dd-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg></div>Recommended</a>
+          <a class="dd-item" href="#collections"><div class="dd-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg></div>Collections</a>
+          <a class="dd-item" href="#custom-page"><div class="dd-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3" /><path d="M19.07 4.93a10 10 0 010 14.14" /><path d="M4.93 4.93a10 10 0 000 14.14" /></svg></div>Custom Jewellery</a>
+          <a class="dd-item" onclick="openCart(event);toggleDot()"><div class="dd-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" /></svg></div>My Cart</a>
+          <a class="dd-item" onclick="openInvoice(event);toggleDot()"><div class="dd-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" /></svg></div>Download Invoice</a>
           <div class="dd-sep"></div>
-          <a class="dd-item" href="#about"><div class="dd-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>About Us</a>
-          <a class="dd-item" href="#contact"><div class="dd-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.07 9.81 19.79 19.79 0 012 2.22 2 2 0 014 .01H7a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006.18 6.18l1.27-.83a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>Contact</a>
+          <a class="dd-item" href="#about"><div class="dd-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" /></svg></div>About Us</a>
+          <a class="dd-item" href="#contact"><div class="dd-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.07 9.81 19.79 19.79 0 012 2.22 2 2 0 014 .01H7a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006.18 6.18l1.27-.83a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" /></svg></div>Contact</a>
           <div class="dd-sep"></div>
           <div class="theme-row">
             <span class="theme-lbl">Dark Mode</span>
@@ -392,7 +396,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 0 2
     <div class="hero-grid">
       <div>
         <div class="hero-tag">Since 1952 · Handcrafted Excellence</div>
-        <h1 class="hero-h1">Where Gold<br>Meets <em>Artistry</em><br>& Soul</h1>
+        <h1 class="hero-h1">Where Gold<br />Meets <em>Artistry</em><br />&amp; Soul</h1>
         <p class="hero-desc">Every piece we craft carries the warmth of generations. Musaddilal Jewellers creates heirloom jewellery that transcends time — handmade with precision, worn with pride.</p>
         <div class="hero-btns">
           <a href="#collections" class="btn btn-gold">Explore Collections →</a>
@@ -406,16 +410,16 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 0 2
       </div>
       <div class="hero-mosaic">
         <div class="mos">
-          <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=80" alt="Gold Necklace">
+          <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=80" alt="Gold Necklace" />
           <span class="mos-lbl">✦ Rani Haar Collection</span>
           <span class="mos-badge">Bestseller</span>
         </div>
         <div class="mos">
-          <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=400&q=80" alt="Diamond Ring">
+          <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=400&q=80" alt="Diamond Ring" />
           <span class="mos-lbl">✦ Solitaire Series</span>
         </div>
         <div class="mos">
-          <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&q=80" alt="Gold Bangles">
+          <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&q=80" alt="Gold Bangles" />
           <span class="mos-lbl">✦ Jadau Bangles</span>
           <span class="mos-badge">New</span>
         </div>
@@ -442,33 +446,33 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 0 2
     <div class="rec-grid">
       <div class="rec-card reveal" data-id="r1" data-name="Diamond Solitaire Ring" data-price="45000" data-img="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=400&q=80">
         <div class="rec-img">
-          <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=400&q=80" alt="Diamond Ring" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=400&q=80" alt="Diamond Ring" loading="lazy" />
           <div class="rec-ov"></div><span class="rec-tag">Top Rated</span>
-          <button class="rec-add" onclick="addToCart(this)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A1410" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <button class="rec-add" onclick="addToCart(this)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A1410" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg></button>
         </div>
         <div class="rec-body"><p class="rec-name">Diamond Solitaire Ring</p><p class="rec-sub">18K Gold · IGI Certified Diamond</p><div class="rec-foot"><span class="rec-price">₹45,000</span><span class="rec-stars">★★★★★</span></div></div>
       </div>
       <div class="rec-card reveal" data-id="r2" data-name="Rani Haar Necklace" data-price="78000" data-img="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&q=80">
         <div class="rec-img">
-          <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&q=80" alt="Necklace" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&q=80" alt="Necklace" loading="lazy" />
           <div class="rec-ov"></div><span class="rec-tag">Bestseller</span>
-          <button class="rec-add" onclick="addToCart(this)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A1410" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <button class="rec-add" onclick="addToCart(this)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A1410" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg></button>
         </div>
         <div class="rec-body"><p class="rec-name">Rani Haar Necklace</p><p class="rec-sub">22K Gold · Handcrafted Kundan</p><div class="rec-foot"><span class="rec-price">₹78,000</span><span class="rec-stars">★★★★★</span></div></div>
       </div>
       <div class="rec-card reveal" data-id="r3" data-name="Jadau Gold Bangles" data-price="32000" data-img="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&q=80">
         <div class="rec-img">
-          <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&q=80" alt="Bangles" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&q=80" alt="Bangles" loading="lazy" />
           <div class="rec-ov"></div><span class="rec-tag">New Arrival</span>
-          <button class="rec-add" onclick="addToCart(this)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A1410" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <button class="rec-add" onclick="addToCart(this)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A1410" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg></button>
         </div>
         <div class="rec-body"><p class="rec-name">Jadau Gold Bangles</p><p class="rec-sub">22K Gold · Meenakari Work</p><div class="rec-foot"><span class="rec-price">₹32,000</span><span class="rec-stars">★★★★☆</span></div></div>
       </div>
       <div class="rec-card reveal" data-id="r4" data-name="Gold Jhumka Earrings" data-price="18500" data-img="https://images.unsplash.com/photo-1630019852942-f89202989a59?w=400&q=80">
         <div class="rec-img">
-          <img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?w=400&q=80" alt="Earrings" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?w=400&q=80" alt="Earrings" loading="lazy" />
           <div class="rec-ov"></div>
-          <button class="rec-add" onclick="addToCart(this)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A1410" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <button class="rec-add" onclick="addToCart(this)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A1410" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg></button>
         </div>
         <div class="rec-body"><p class="rec-name">Gold Jhumka Earrings</p><p class="rec-sub">22K Gold · Traditional Enamel</p><div class="rec-foot"><span class="rec-price">₹18,500</span><span class="rec-stars">★★★★★</span></div></div>
       </div>
@@ -485,27 +489,27 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 0 2
     </div>
     <div class="coll-grid">
       <div class="coll-card reveal" data-id="c1" data-name="Rani Haar Collection" data-price="45000" data-img="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=80">
-        <div class="coll-img"><img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=80" alt="Necklace" loading="lazy"><div class="coll-ov"></div><span class="coll-tag">New</span></div>
+        <div class="coll-img"><img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=80" alt="Necklace" loading="lazy" /><div class="coll-ov"></div><span class="coll-tag">New</span></div>
         <div class="coll-body"><p class="coll-name">Rani Haar Collection</p><p class="coll-sub">22K Gold · Handcrafted · Kundan</p><div class="coll-foot"><span class="coll-price">Starting ₹45,000</span><span class="coll-arr" onclick="addToCartById(this.closest('.coll-card'))">+</span></div></div>
       </div>
       <div class="coll-card reveal" data-id="c2" data-name="Diamond Solitaire Ring" data-price="28000" data-img="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=600&q=80">
-        <div class="coll-img"><img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=600&q=80" alt="Ring" loading="lazy"><div class="coll-ov"></div><span class="coll-tag">Trending</span></div>
+        <div class="coll-img"><img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=600&q=80" alt="Ring" loading="lazy" /><div class="coll-ov"></div><span class="coll-tag">Trending</span></div>
         <div class="coll-body"><p class="coll-name">Diamond Solitaire</p><p class="coll-sub">18K Gold · Diamond · IGI Certified</p><div class="coll-foot"><span class="coll-price">Starting ₹28,000</span><span class="coll-arr" onclick="addToCartById(this.closest('.coll-card'))">+</span></div></div>
       </div>
       <div class="coll-card reveal" data-id="c3" data-name="Jadau Bangles Set" data-price="32000" data-img="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80">
-        <div class="coll-img"><img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80" alt="Bangles" loading="lazy"><div class="coll-ov"></div></div>
+        <div class="coll-img"><img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80" alt="Bangles" loading="lazy" /><div class="coll-ov"></div></div>
         <div class="coll-body"><p class="coll-name">Jadau Bangles Set</p><p class="coll-sub">22K Gold · Kundan · Meenakari</p><div class="coll-foot"><span class="coll-price">Starting ₹32,000</span><span class="coll-arr" onclick="addToCartById(this.closest('.coll-card'))">+</span></div></div>
       </div>
       <div class="coll-card reveal" data-id="c4" data-name="Gold Jhumka Earrings" data-price="12000" data-img="https://images.unsplash.com/photo-1630019852942-f89202989a59?w=600&q=80">
-        <div class="coll-img"><img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?w=600&q=80" alt="Earrings" loading="lazy"><div class="coll-ov"></div><span class="coll-tag">Classic</span></div>
+        <div class="coll-img"><img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?w=600&q=80" alt="Earrings" loading="lazy" /><div class="coll-ov"></div><span class="coll-tag">Classic</span></div>
         <div class="coll-body"><p class="coll-name">Jhumka Collection</p><p class="coll-sub">22K Gold · Enamel · Traditional</p><div class="coll-foot"><span class="coll-price">Starting ₹12,000</span><span class="coll-arr" onclick="addToCartById(this.closest('.coll-card'))">+</span></div></div>
       </div>
       <div class="coll-card reveal" data-id="c5" data-name="Bridal Full Set" data-price="180000" data-img="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=600&q=80">
-        <div class="coll-img"><img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=600&q=80" alt="Bridal" loading="lazy"><div class="coll-ov"></div><span class="coll-tag">Bridal</span></div>
+        <div class="coll-img"><img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=600&q=80" alt="Bridal" loading="lazy" /><div class="coll-ov"></div><span class="coll-tag">Bridal</span></div>
         <div class="coll-body"><p class="coll-name">Shaadi Special Set</p><p class="coll-sub">22K Gold · Complete Bridal Set</p><div class="coll-foot"><span class="coll-price">Starting ₹1,80,000</span><span class="coll-arr" onclick="addToCartById(this.closest('.coll-card'))">+</span></div></div>
       </div>
       <div class="coll-card reveal" data-id="c6" data-name="Pure Silver Payal" data-price="3500" data-img="https://images.unsplash.com/photo-1571945153237-4929e783af4a?w=600&q=80">
-        <div class="coll-img"><img src="https://images.unsplash.com/photo-1571945153237-4929e783af4a?w=600&q=80" alt="Payal" loading="lazy"><div class="coll-ov"></div></div>
+        <div class="coll-img"><img src="https://images.unsplash.com/photo-1571945153237-4929e783af4a?w=600&q=80" alt="Payal" loading="lazy" /><div class="coll-ov"></div></div>
         <div class="coll-body"><p class="coll-name">Pure Silver Payal</p><p class="coll-sub">925 Sterling Silver · Hallmarked</p><div class="coll-foot"><span class="coll-price">Starting ₹3,500</span><span class="coll-arr" onclick="addToCartById(this.closest('.coll-card'))">+</span></div></div>
       </div>
     </div>
@@ -516,10 +520,10 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 0 2
 <div class="features-bg">
   <div class="page-wrap">
     <div class="feat-grid reveal">
-      <div class="feat"><div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><p class="feat-t">BIS Hallmark Certified</p><p class="feat-d">Every piece certified under Government of India standards for purity.</p></div>
-      <div class="feat"><div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><p class="feat-t">Master Craftsmen</p><p class="feat-d">Karigars with 30+ years experience handcraft each piece with love.</p></div>
-      <div class="feat"><div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><p class="feat-t">Free Home Delivery</p><p class="feat-d">Secure, insured delivery across India in our signature gift box.</p></div>
-      <div class="feat"><div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12V6a2 2 0 012-2h12a2 2 0 012 2v6M2 12h20M12 12v8m-4-4h8"/></svg></div><p class="feat-t">Lifetime Exchange</p><p class="feat-d">Full exchange and buy-back policy on all gold jewellery pieces.</p></div>
+      <div class="feat"><div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg></div><p class="feat-t">BIS Hallmark Certified</p><p class="feat-d">Every piece certified under Government of India standards for purity.</p></div>
+      <div class="feat"><div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg></div><p class="feat-t">Master Craftsmen</p><p class="feat-d">Karigars with 30+ years experience handcraft each piece with love.</p></div>
+      <div class="feat"><div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" /></svg></div><p class="feat-t">Free Home Delivery</p><p class="feat-d">Secure, insured delivery across India in our signature gift box.</p></div>
+      <div class="feat"><div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12V6a2 2 0 012-2h12a2 2 0 012 2v6M2 12h20M12 12v8m-4-4h8" /></svg></div><p class="feat-t">Lifetime Exchange</p><p class="feat-d">Full exchange and buy-back policy on all gold jewellery pieces.</p></div>
     </div>
   </div>
 </div>
@@ -540,31 +544,31 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 0 2
             <div class="proc-step"><div class="proc-num">4</div><div><p class="proc-h">Delivered with Love</p><p class="proc-p">Your jewel arrives in our signature Musaddilal gift box</p></div></div>
           </div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px">
-            <div style="border-radius:12px;overflow:hidden;height:130px"><img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&q=80" alt="Custom jewel" style="width:100%;height:100%;object-fit:cover" loading="lazy"></div>
-            <div style="border-radius:12px;overflow:hidden;height:130px"><img src="https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=400&q=80" alt="Custom jewel 2" style="width:100%;height:100%;object-fit:cover" loading="lazy"></div>
+            <div style="border-radius:12px;overflow:hidden;height:130px"><img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&q=80" alt="Custom jewel" style="width:100%;height:100%;object-fit:cover" loading="lazy" /></div>
+            <div style="border-radius:12px;overflow:hidden;height:130px"><img src="https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=400&q=80" alt="Custom jewel 2" style="width:100%;height:100%;object-fit:cover" loading="lazy" /></div>
           </div>
         </div>
         <div>
           <div class="cform">
             <div class="frow">
-              <div class="fg"><label>Full Name *</label><input type="text" id="fname" placeholder="Your full name"></div>
-              <div class="fg"><label>Phone Number *</label><input type="tel" id="fphone" placeholder="+91 00000 00000"></div>
+              <div class="fg"><label>Full Name *</label><input type="text" id="fname" placeholder="Your full name" /></div>
+              <div class="fg"><label>Phone Number *</label><input type="tel" id="fphone" placeholder="+91 00000 00000" /></div>
             </div>
-            <div class="fg"><label>Email Address</label><input type="email" id="femail" placeholder="your@email.com"></div>
+            <div class="fg"><label>Email Address</label><input type="email" id="femail" placeholder="your@email.com" /></div>
             <div class="frow">
               <div class="fg"><label>Jewellery Type *</label><select id="fjtype"><option value="">Select type</option><option>Necklace / Haar</option><option>Ring / Solitaire</option><option>Bangles / Kada</option><option>Earrings / Jhumka</option><option>Bridal Full Set</option><option>Bracelet</option><option>Pendant / Locket</option><option>Anklet / Payal</option><option>Maang Tikka</option><option>Nose Ring / Nath</option><option>Other</option></select></div>
               <div class="fg"><label>Metal Preference *</label><select id="fmetal"><option value="">Select metal</option><option>22K Yellow Gold</option><option>18K Yellow Gold</option><option>18K White Gold</option><option>18K Rose Gold</option><option>Sterling Silver (925)</option><option>Platinum</option><option>Mixed / Suggest me</option></select></div>
             </div>
             <div class="frow">
               <div class="fg"><label>Gemstone (Optional)</label><select id="fgem"><option value="">No gemstone</option><option>Diamond</option><option>Ruby</option><option>Emerald</option><option>Sapphire</option><option>Pearl</option><option>Polki / Kundan</option><option>Coral</option><option>Other</option></select></div>
-              <div class="fg"><label>Your Budget (Optional)</label><input type="text" id="fbudget" placeholder="e.g. ₹50,000 – ₹80,000"></div>
+              <div class="fg"><label>Your Budget (Optional)</label><input type="text" id="fbudget" placeholder="e.g. ₹50,000 – ₹80,000" /></div>
             </div>
             <div class="fg"><label>Occasion</label><select id="focc"><option value="">Select occasion</option><option>Wedding / Shaadi</option><option>Engagement</option><option>Anniversary Gift</option><option>Birthday Gift</option><option>Festival</option><option>Daily Wear</option><option>Investment</option><option>Other</option></select></div>
             <div class="fg"><label>Describe Your Design *</label><textarea id="fdesc" placeholder="Design details, size, style, special requirements, any inspiration..."></textarea></div>
             <div class="price-note"><strong>✦ Seller Price Suggestion:</strong> After reviewing your request, our team will personally contact you within <strong>24 hours</strong> with a custom price quote tailored to your design and budget.</div>
             <div class="wa-row">
-              <div class="wa-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.978-1.306A9.951 9.951 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg></div>
-              <div style="flex:1"><strong style="color:var(--text);font-size:13px">Quick Order via WhatsApp</strong><br><span style="font-size:12px">Chat directly for instant quotes</span></div>
+              <div class="wa-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" /><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.978-1.306A9.951 9.951 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" /></svg></div>
+              <div style="flex:1"><strong style="color:var(--text);font-size:13px">Quick Order via WhatsApp</strong><br /><span style="font-size:12px">Chat directly for instant quotes</span></div>
               <a href="https://wa.me/919873465000?text=Hi!%20I%20want%20to%20order%20custom%20jewellery." target="_blank" class="wa-btn">WhatsApp →</a>
             </div>
             <button class="sub-btn" onclick="submitOrder()">Submit Custom Order Request ✦</button>
@@ -592,7 +596,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 0 2
   <div class="page-wrap">
     <div class="about-grid reveal">
       <div class="about-img-wrap">
-        <div class="about-img"><img src="https://images.unsplash.com/photo-1584302179602-e4c3d3fd629d?w=700&q=80" alt="Jewellery crafting" loading="lazy"></div>
+        <div class="about-img"><img src="https://images.unsplash.com/photo-1584302179602-e4c3d3fd629d?w=700&q=80" alt="Jewellery crafting" loading="lazy" /></div>
         <div class="about-badge"><div class="about-badge-n">1952</div><div class="about-badge-t">Est. in Delhi</div></div>
       </div>
       <div>
@@ -613,9 +617,10 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 0 2
       <div class="f-brand">
         <span class="f-logo">Musaddilal Jewellers</span>
         <p>Crafting timeless jewellery since 1952. Every piece is a work of art, made with love and precision by our master karigars in Old Delhi.</p>
-        <div class="f-contact"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><a href="https://share.google/tpfEQKuUCXW9uog0m" target="_blank" style="color:inherit;text-decoration:none">View on Google Maps →</a></div>
-        <div class="f-contact"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.07 9.81 19.79 19.79 0 012 2.22 2 2 0 014 .01H7a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006.18 6.18l1.27-.83a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>+91 98734 65000</div>
-        <div class="f-contact"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4821262e2708253d3b292c2c21242924222d3f2d24242d3a3b662b2725">[email&#160;protected]</a></div>
+        <div class="f-contact"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" /></svg><a href="https://share.google/tpfEQKuUCXW9uog0m" target="_blank" style="color:inherit;text-decoration:none">View on Google Maps →</a></div>
+        <div class="f-contact"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.07 9.81 19.79 19.79 0 012 2.22 2 2 0 014 .01H7a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006.18 6.18l1.27-.83a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" /></svg>+91 98734 65000</div>
+        <!-- FIX: plain email address, no Cloudflare obfuscation -->
+        <div class="f-contact"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg><a href="mailto:info@musaddilaljewellers.com" style="color:inherit;text-decoration:none">info@musaddilaljewellers.com</a></div>
         <div class="f-social"><a href="#" class="soc-btn">f</a><a href="#" class="soc-btn">in</a><a href="#" class="soc-btn">yt</a><a href="https://wa.me/919873465000" target="_blank" class="soc-btn">wa</a></div>
       </div>
       <div class="f-col"><h4>Collections</h4><a href="#">Gold Jewellery</a><a href="#">Diamond Rings</a><a href="#">Bridal Sets</a><a href="#">Silver Ornaments</a><a href="#">Antique Pieces</a><a href="#">Temple Jewellery</a></div>
@@ -625,7 +630,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 0 2
         <a style="cursor:default">Mon – Sat: 10 AM – 8 PM</a>
         <a style="cursor:default">Sunday: 11 AM – 6 PM</a>
         <a href="#custom-page" style="color:var(--gold);margin-top:8px">✦ Book a Private Visit</a>
-        <a href="https://wa.me/919873465000" target="_blank" class="wa-btn" style="margin-top:16px;font-size:11px;padding:9px 14px"><svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.978-1.306A9.951 9.951 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>WhatsApp Us</a>
+        <a href="https://wa.me/919873465000" target="_blank" class="wa-btn" style="margin-top:16px;font-size:11px;padding:9px 14px"><svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" /><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.978-1.306A9.951 9.951 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" /></svg>WhatsApp Us</a>
       </div>
     </div>
     <div class="f-bottom">
@@ -640,11 +645,12 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 0 2
 <div class="cart-panel" id="cartPanel">
   <div class="cart-hdr">
     <h2 class="cart-title">My Cart ✦</h2>
-    <button class="cart-cls" onclick="closeCart()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <button class="cart-cls" onclick="closeCart()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg></button>
   </div>
+  <!-- FIX: cart-empty shown/hidden via JS, not CSS display:none on class -->
   <div class="cart-items" id="cartItems">
     <div class="cart-empty" id="cartEmpty">
-      <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" /><line x1="3" y1="6" x2="21" y2="6" /><path d="M16 10a4 4 0 01-8 0" /></svg>
       <p>Your cart is empty</p><span>Add some beautiful jewellery!</span>
     </div>
   </div>
@@ -652,7 +658,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 0 2
     <div class="cart-total-row"><span class="ct-lbl">Total Amount</span><span class="ct-val" id="cartTotal">₹0</span></div>
     <button class="checkout-btn" onclick="checkout()">Proceed to Checkout →</button>
     <button class="inv-dl-btn" onclick="closeCart();openInvoice(null)">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="12" y1="18" x2="12" y2="12" /><polyline points="9 15 12 18 15 15" /></svg>
       Download Invoice
     </button>
   </div>
@@ -663,7 +669,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 0 2
   <div class="mod-box">
     <div class="mod-top">
       <span class="mod-title">Invoice &amp; Receipt</span>
-      <button class="mod-x" onclick="document.getElementById('invoiceMod').classList.remove('open')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+      <button class="mod-x" onclick="document.getElementById('invoiceMod').classList.remove('open')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg></button>
     </div>
     <div class="inv-wrap" id="invContent">
       <p class="inv-logo">Musaddilal Jewellers</p>
@@ -684,7 +690,11 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 0 2
       </div>
       <div class="inv-grand"><span class="inv-grand-lbl">Grand Total</span><span class="inv-grand-val" id="invGrand">₹0</span></div>
       <p class="inv-note">Thank you for your trust in Musaddilal Jewellers. This invoice is system-generated and valid without signature. All jewellery is BIS Hallmark certified. For queries call +91 98734 65000.</p>
-      <button class="dl-inv-btn" onclick="downloadInvoice()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download Invoice / Print</button>
+      <!-- FIX: Download button visible inside modal -->
+      <button class="dl-inv-btn" onclick="downloadInvoice()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
+        Download Invoice / Print
+      </button>
     </div>
   </div>
 </div>
@@ -693,20 +703,20 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 0 2
 <div class="mod-ov" id="successMod" onclick="closeMod(event,'successMod')">
   <div class="mod-box">
     <div class="suc-wrap">
-      <div class="suc-ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.3"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+      <div class="suc-ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.3"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg></div>
       <h3 class="suc-title">Order Received! ✦</h3>
-      <p class="suc-desc">Thank you for your custom jewellery request. Our team will review your design and contact you within <strong style="color:var(--gold)">24 hours</strong> with a personalized price quote.<br><br>You will receive a confirmation on your WhatsApp shortly.</p>
+      <p class="suc-desc">Thank you for your custom jewellery request. Our team will review your design and contact you within <strong style="color:var(--gold)">24 hours</strong> with a personalized price quote.<br /><br />You will receive a confirmation on your WhatsApp shortly.</p>
       <button class="suc-close" onclick="document.getElementById('successMod').classList.remove('open')">Close</button>
     </div>
   </div>
 </div>
 
 <button class="scrolltop" id="stBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#1A1410" stroke-width="2.5" stroke-linecap="round"><path d="M18 15l-6-6-6 6"/></svg>
+  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#1A1410" stroke-width="2.5" stroke-linecap="round"><path d="M18 15l-6-6-6 6" /></svg>
 </button>
 
 <!-- ===== SCRIPTS ===== -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 /* CURSOR */
 const cur=document.getElementById('cur'),ring=document.getElementById('curRing');
 let mx=0,my=0,rx=0,ry=0;
@@ -750,6 +760,7 @@ function updateCart(){
   document.getElementById('cartTotal').textContent=fmt(cartSum());
   const el=document.getElementById('cartItems');
   const emp=document.getElementById('cartEmpty');
+  // FIX: Remove only c-item elements, not the empty state div
   el.querySelectorAll('.c-item').forEach(i=>i.remove());
   if(!cart.length){emp.style.display='block';return;}
   emp.style.display='none';
@@ -790,9 +801,10 @@ function openInvoice(e){
   document.getElementById('invoiceMod').classList.add('open');
 }
 function downloadInvoice(){
+  // FIX: use correct font-family name (no URL encoding) in print window CSS
   const c=document.getElementById('invContent').innerHTML;
   const w=window.open('','_blank');
-  w.document.write(`<!DOCTYPE html><html><head><title>Invoice — Musaddilal Jewellers</title><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Jost:wght@400;500&display=swap" rel="stylesheet"><style>body{font-family:'Jost',sans-serif;max-width:580px;margin:40px auto;padding:24px;color:#1A1410}p{margin:0}.inv-logo{font-family:'Cormorant+Garamond',serif;font-size:22px;font-weight:600;color:#C9A84C;text-align:center;margin-bottom:3px}.inv-sublogo{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#9C8660;text-align:center;margin-bottom:22px}.inv-row{display:flex;justify-content:space-between;margin-bottom:18px}.inv-lbl{font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:#9C8660;margin-bottom:3px}.inv-val{font-size:14px;font-weight:500}.inv-tbl{width:100%;border-collapse:collapse;font-size:13px;margin:18px 0}.inv-tbl th{text-align:left;padding:7px 0;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#9C8660;border-bottom:1px solid #EAE3D6;font-weight:400}.inv-tbl td{padding:9px 0;border-bottom:1px solid #EAE3D6;color:#5C4A2A}.inv-tbl td:last-child{text-align:right;color:#C9A84C;font-weight:500}.inv-totals{display:flex;flex-direction:column;gap:5px}.inv-trow{display:flex;justify-content:space-between;font-size:13px;color:#9C8660}.inv-grand{display:flex;justify-content:space-between;padding:13px 0;border-top:2px solid #EAE3D6;margin-top:4px}.inv-grand-lbl{font-size:13px;text-transform:uppercase;font-weight:500}.inv-grand-val{font-family:'Cormorant+Garamond',serif;font-size:22px;color:#C9A84C;font-weight:600}.inv-note{font-size:11.5px;color:#9C8660;text-align:center;margin-top:14px;line-height:1.7;padding-top:14px;border-top:1px solid #EAE3D6}.dl-inv-btn{display:none}</style></head><body>${c}</body></html>`);
+  w.document.write(`<!DOCTYPE html><html><head><title>Invoice — Musaddilal Jewellers</title><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Jost:wght@400;500&display=swap" rel="stylesheet"><style>body{font-family:'Jost',sans-serif;max-width:580px;margin:40px auto;padding:24px;color:#1A1410}p{margin:0}.inv-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:#C9A84C;text-align:center;margin-bottom:3px}.inv-sublogo{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#9C8660;text-align:center;margin-bottom:22px}.inv-row{display:flex;justify-content:space-between;margin-bottom:18px}.inv-lbl{font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:#9C8660;margin-bottom:3px}.inv-val{font-size:14px;font-weight:500}.inv-tbl{width:100%;border-collapse:collapse;font-size:13px;margin:18px 0}.inv-tbl th{text-align:left;padding:7px 0;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#9C8660;border-bottom:1px solid #EAE3D6;font-weight:400}.inv-tbl td{padding:9px 0;border-bottom:1px solid #EAE3D6;color:#5C4A2A}.inv-tbl td:last-child{text-align:right;color:#C9A84C;font-weight:500}.inv-totals{display:flex;flex-direction:column;gap:5px}.inv-trow{display:flex;justify-content:space-between;font-size:13px;color:#9C8660}.inv-grand{display:flex;justify-content:space-between;padding:13px 0;border-top:2px solid #EAE3D6;margin-top:4px}.inv-grand-lbl{font-size:13px;text-transform:uppercase;font-weight:500}.inv-grand-val{font-family:'Cormorant Garamond',serif;font-size:22px;color:#C9A84C;font-weight:600}.inv-note{font-size:11.5px;color:#9C8660;text-align:center;margin-top:14px;line-height:1.7;padding-top:14px;border-top:1px solid #EAE3D6}.dl-inv-btn{display:none}</style></head><body>${c}</body></html>`);
   w.document.close();setTimeout(()=>w.print(),500);
 }
 function closeMod(e,id){if(e.target.id===id)document.getElementById(id).classList.remove('open')}
@@ -807,11 +819,9 @@ function submitOrder(){
   if(!phone){alert('Please enter your phone number.');document.getElementById('fphone').focus();return}
   if(!jtype){alert('Please select a jewellery type.');document.getElementById('fjtype').focus();return}
   if(!desc){alert('Please describe your design.');document.getElementById('fdesc').focus();return}
-  // Clear form
   document.getElementById('fname').value='';document.getElementById('fphone').value='';document.getElementById('femail').value='';document.getElementById('fjtype').selectedIndex=0;document.getElementById('fmetal').selectedIndex=0;document.getElementById('fgem').selectedIndex=0;document.getElementById('fbudget').value='';document.getElementById('focc').selectedIndex=0;document.getElementById('fdesc').value='';
-  // Show success modal
   document.getElementById('successMod').classList.add('open');
-} 
+}
 </script>
 </body>
 </html>
